@@ -24,7 +24,7 @@ public class ArrayIntersection {
         int m = b.length;
 
         //Sort the smallest array : O(mlog(m))
-        Arrays.sort(b);
+        HeapSort.sort(b,m);
 
         // O (mlog(m) + nlog(m)) => O((m+n)log(m) )
         for(int i=0; i< n; i++) {
