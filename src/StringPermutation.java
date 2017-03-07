@@ -3,10 +3,13 @@
  */
 public class StringPermutation {
 
+    // O(n*n!)
     public static void printPermutation(int l, int r, String givenString) {
         if (l == r) {
+            // O(n)
             System.out.println(givenString);
         } else {
+            // O(n!)
             for (int i = l; i <= r; i++)
             {
                 givenString = swapChar(givenString,l,i);

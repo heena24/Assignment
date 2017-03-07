@@ -24,6 +24,8 @@ public class TrieNode {
      * @param word
      * @param minHeap
      * @return
+     *
+     * O (m) : m length of string
      */
     public static TrieNode insert(TrieNode root, String word, MinHeap minHeap) {
         int length = word.length();
@@ -54,6 +56,8 @@ public class TrieNode {
      * @param word
      * @param minHeap
      * @return
+     * 
+     * O (m) : m length of string
      */
     public static boolean search(TrieNode root, String word,MinHeap minHeap) {
         int length = word.length();

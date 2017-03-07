@@ -23,16 +23,18 @@ public class ArrayIntersection {
         int n = a.length;
         int m = b.length;
 
+        // O(mlog(m))
         Arrays.sort(b);
 
+        // O (mlog(m) + nlog(m)) => O((m+n)log(m) )
         for(int i=0; i< n; i++) {
             if (binarySearch(0, m - 1, a[i]) != -1) {
                 System.out.println(a[i]);
             }
         }
-
     }
 
+    // O(log(m))
     public int binarySearch(int i, int j, int data) {
 
         if (j >= i) {
