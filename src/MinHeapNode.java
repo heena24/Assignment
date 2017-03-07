@@ -6,7 +6,7 @@ public class MinHeapNode {
     int frequency;
     String word;
 
-    MinHeapNode () {
+        MinHeapNode () {
         frequency = 0;
     }
 }
