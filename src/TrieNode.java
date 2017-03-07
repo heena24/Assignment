@@ -18,6 +18,13 @@ public class TrieNode {
         character = c;
     }
 
+    /**
+     * Method to add a word into a Trie
+     * @param root
+     * @param word
+     * @param minHeap
+     * @return
+     */
     public static TrieNode insert(TrieNode root, String word, MinHeap minHeap) {
         int length = word.length();
 
@@ -41,6 +48,13 @@ public class TrieNode {
 
     }
 
+    /**
+     * Method to search for a word in a Trie
+     * @param root
+     * @param word
+     * @param minHeap
+     * @return
+     */
     public static boolean search(TrieNode root, String word,MinHeap minHeap) {
         int length = word.length();
         TrieNode temp = root;
@@ -61,23 +75,8 @@ public class TrieNode {
         return (temp != null && temp.isLeaf);
     }
 
-//    public static void print(TrieNode root) {
-//        for (int i=0; i< root.child.length ; i++) {
-//            if (root.child[i] != null) {
-//                System.out.println(root.child[i].character);
-//            }
-//        }
-//    }
-
     public static int charToIndex(char c) {
         return (int) c - (int) 'a';
     }
 
-//    public static boolean isLowerCase(char ch) {
-//        return ch >= 'a' && ch <= 'z';
-//    }
-//
-//    public static boolean isUpperCase(char ch) {
-//        return ch >= 'A' && ch <= 'Z';
-//    }
 }

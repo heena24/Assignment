@@ -29,13 +29,13 @@ public class MostUsedWords {
 
             for (File file : list) {
                 if (file.isFile()) {
+                    // Create Trie data structure root node
                     TrieNode root = new TrieNode(' ');
                     // Also create minheap
                     MinHeap minHeap = new MinHeap(10);
                     BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(file)));
                     String line = null;
                     while( (line = br.readLine())!= null ){
-                        // \\s+ means any number of whitespaces between tokens
                         String [] tokens = line.split("\\s+");
                         for (String word : tokens) {
                             insertIntoTrieAndHeap(root,minHeap,word.toLowerCase());

@@ -18,7 +18,6 @@ public class ArrayIntersection {
             int[] temp = a;
             a = b;
             b = temp;
-
         }
 
         int n = a.length;

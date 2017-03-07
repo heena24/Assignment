@@ -15,11 +15,17 @@ public class MinHeap {
         count = 0;
     }
 
+    /**
+     * Method to insert element into heap
+     * @param trieNode
+     * @param word
+     */
     public void insertMinHeap(TrieNode trieNode, String word) {
+            // Already visited word
             if (trieNode.indexMinHeap != -1) {
                 ++heapNodes[trieNode.indexMinHeap].frequency;
-                heapify(trieNode.indexMinHeap);
-            } else if (count < capacity) {
+                minHeapify(trieNode.indexMinHeap);
+            } else if (count < capacity) { // Addition of new word
                 int counter = count;
                 heapNodes[counter].frequency = trieNode.frequency;
                 heapNodes[counter].word = word;
@@ -29,31 +35,38 @@ public class MinHeap {
                 count++;
                 // build min heap
                 buildMinHeap();
-            } else if (trieNode.frequency > heapNodes[0].frequency) {
+            } else if (trieNode.frequency > heapNodes[0].frequency) { // Addition of word with max freq than heap root
                 heapNodes[0].trieNode.indexMinHeap = -1;
                 heapNodes[0].trieNode = trieNode;
                 heapNodes[0].trieNode.indexMinHeap = 0;
                 heapNodes[0].frequency = trieNode.frequency;
                 heapNodes[0].word = word;
 
-                // call minheapify
-                heapify(0);
+                // Heapify the head after insertion
+                minHeapify(0);
             }
     }
 
+    /**
+     * Method to heapify the heap after addition of new element
+     */
     public void buildMinHeap() {
-        int n, i;
+        int n;
         n = count - 1;
 
-        for (i= (n-1)/2; i>=0; i--) {
-            heapify(i);
+        for (int i= (n-1)/2; i>=0; i--) {
+            minHeapify(i);
         }
     }
 
-    public void heapify(int i) {
-        int l = 2*i + 1;
-        int r = 2*i + 2;
-        int smallest = i;
+    /**
+     * Method to heapify the heap after modification of its element
+     * @param index
+     */
+    public void minHeapify(int index) {
+        int l = 2*index + 1;
+        int r = 2*index + 2;
+        int smallest = index;
 
         if (l < capacity && heapNodes[l].frequency < heapNodes[smallest].frequency) {
             smallest = l;
@@ -63,9 +76,9 @@ public class MinHeap {
             smallest = r;
         }
 
-        if (smallest != i) {
-            swapNode(heapNodes[i],heapNodes[smallest]);
-            heapify(smallest);
+        if (smallest != index) {
+            swapNode(heapNodes[index],heapNodes[smallest]);
+            minHeapify(smallest);
         }
     }
 
@@ -74,6 +87,10 @@ public class MinHeap {
         x = y;
         y = temp;
     }
+
+    /**
+     * Method to print the elements of heap
+     */
 
     public void display() {
         for (int i=0; i< count; i++) {
