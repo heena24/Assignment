@@ -12,6 +12,7 @@ public class MostUsedWords {
         path = givenDir;
     }
 
+    // O (n*m) : n number of words m length of string
     public void printMostUsedWords() throws IOException {
         // Fetch all files from the given directory
 

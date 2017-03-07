@@ -13,7 +13,7 @@ public class ArrayIntersection {
 
     public void printIntersection() {
 
-        // Sort the smallest array
+        // Find the smallest size array and swap with b
         if(a.length < b.length) {
             int[] temp = a;
             a = b;
@@ -23,7 +23,7 @@ public class ArrayIntersection {
         int n = a.length;
         int m = b.length;
 
-        // O(mlog(m))
+        //Sort the smallest array : O(mlog(m))
         Arrays.sort(b);
 
         // O (mlog(m) + nlog(m)) => O((m+n)log(m) )
@@ -34,7 +34,7 @@ public class ArrayIntersection {
         }
     }
 
-    // O(log(m))
+    // O(log(n)) : n number of elements
     public int binarySearch(int i, int j, int data) {
 
         if (j >= i) {

@@ -49,6 +49,8 @@ public class MinHeap {
 
     /**
      * Method to heapify the heap after addition of new element
+     *
+     * O (n log n)
      */
     public void buildMinHeap() {
         int n;
@@ -62,6 +64,8 @@ public class MinHeap {
     /**
      * Method to heapify the heap after modification of its element
      * @param index
+     *
+     * O(log n)
      */
     public void minHeapify(int index) {
         int l = 2*index + 1;
